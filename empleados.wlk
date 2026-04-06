@@ -9,8 +9,12 @@ method sueldo() {
   return sueldoFijo
 }
 
-method sueldo(nuevoSueldo) {
+method sueldo(nuevoSueldo) {   //...
   sueldoFijo = nuevoSueldo
+}
+
+method cobrar(){               //...
+  sueldo = sueldo + self.sueldo  
 }
 
 method gastar(cuanto) {
@@ -42,7 +46,7 @@ method dinero() {
 object baigorria {
   var cantidadDeEmpanadasVendidas = 0
   var totalCobrado = 0
-  const ventaPorEmpanada = 15
+  const ventaPorEmpanada = 15      // debería ser comisionPorEmpanadaVendida ya que se lo consideraría más como una comisión que por venta
 
 
 method venderEmpanadas(cantidad) { 
@@ -53,14 +57,16 @@ method sueldo() {
   return cantidadDeEmpanadasVendidas * ventaPorEmpanada 
 }
 
-method montoACobrar(monto) {
-  totalCobrado = monto + totalCobrado
+//method montoACobrar(monto) {               no iría el parámetro de 'monto' ya que se puede usar el self para ahorrar ese parámetro
+//  totalCobrado = monto + totalCobrado
+method cobrar() {
+  totalCobrado = self.sueldo + totalCobrado
   cantidadDeEmpanadasVendidas = 0 // reseteo de las ventas vendidas
   }
 
-method totalCobrado() { 
-  return totalCobrado 
-}
+//method totalCobrado() { 
+//  return totalCobrado 
+//}
 
 }
 
@@ -71,6 +77,7 @@ object gimenez {
 
 method pagarA(empleado) {
   fondoParaSueldos = fondoParaSueldos - empleado.sueldo()
+  empleado.cobrar()    //  tenés que dar el sueldo que cobraría el empleado dado, no solamente actualizar el fondo de gimenez
 }
   
 method fondoParaSueldos() { 
