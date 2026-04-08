@@ -68,6 +68,10 @@ method cobrar() {
 //  return totalCobrado 
 //}
 
+method cobrar(){               //...
+  sueldo = sueldo + self.sueldo  
+}
+
 }
 
 
