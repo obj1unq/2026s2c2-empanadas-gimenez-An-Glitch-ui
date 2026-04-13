@@ -1,4 +1,4 @@
-object galván {
+object galvan {
   var sueldoFijo = 15000
   var deuda = 0
   var dinero = 0
@@ -84,6 +84,8 @@ method fondoParaSueldos() {
   return fondoParaSueldos 
 }
 
-
+method fondoParaSueldos(monto) {
+  fondoParaSueldos = monto
+}
 
 }
