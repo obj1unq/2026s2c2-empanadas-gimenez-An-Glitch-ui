@@ -1,0 +1,16 @@
+import empanadas.*
+
+describe "sin fondo suficiente" {
+  test "jefe sin fondos" {
+    gimenez.fondoParaSueldos(10000)
+    gimenez.pagarA(galvan)
+    assert.equals(expected, actual)
+
+  }
+}
+
+describe "con fondos suficientes" {
+  test "jefe con fondos" {
+    
+  }
+}
