@@ -84,6 +84,8 @@ method fondoParaSueldos() {
   return fondoParaSueldos 
 }
 
-
+method fondoParaSueldos(monto) {
+  fondoParaSueldos = monto
+}
 
 }
