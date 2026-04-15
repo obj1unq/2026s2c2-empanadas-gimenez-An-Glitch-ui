@@ -2,15 +2,18 @@ import empanadas.*
 
 describe "sin fondo suficiente" {
   test "jefe sin fondos" {
-    gimenez.fondoParaSueldos(10000)
-    gimenez.pagarA(galvan)
-    assert.equals(expected, actual)
-
+    assert.equals(300000, gimenez.fondoParaSueldos())
+    assert.throwsException({ gimenez.pagarA(galvan) })
   }
 }
 
-describe "con fondos suficientes" {
+describe "pago a Galvan con fondos suficientes" {
   test "jefe con fondos" {
-    
+    assert.equals(300000, gimenez.fondoParaSueldos())
+    assert.equals(0, galvan.sueldo())
+
+    gimenez.pagarA(galvan)
+    assert.equals(285000, gimenez.fondoParaSueldos())
+    assert.equals(15000, galvan.sueldo())
   }
 }
